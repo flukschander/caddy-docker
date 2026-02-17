@@ -3,7 +3,7 @@ FROM caddy:2.10.2-builder AS builder
 RUN git clone https://github.com/zyclonite/caddy-forwardproxy /src/forwardproxy
 
 RUN xcaddy build \
-    --with github.com/libdns/googleclouddns \
+    --with github.com/caddy-dns/googleclouddns \
     --with github.com/caddyserver/forwardproxy=/src/forwardproxy
 
 FROM alpine:3.23
