@@ -1,8 +1,8 @@
-FROM caddy:2.11.3-builder AS builder
+FROM caddy:builder AS builder
 
 RUN git clone https://github.com/zyclonite/caddy-forwardproxy /src/forwardproxy
 
-RUN xcaddy build \
+RUN xcaddy build v2.11.3 \
     --with github.com/caddy-dns/googleclouddns \
     --with github.com/caddyserver/forwardproxy=/src/forwardproxy
 
