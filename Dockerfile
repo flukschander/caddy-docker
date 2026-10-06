@@ -2,14 +2,14 @@ FROM caddy:builder AS builder
 
 RUN git clone https://github.com/zyclonite/caddy-forwardproxy /src/forwardproxy
 
-RUN xcaddy build v2.11.3 \
+RUN xcaddy build v2.11.7 \
     --with github.com/caddy-dns/googleclouddns \
     --with github.com/caddyserver/forwardproxy=/src/forwardproxy
 
 FROM alpine:3.23
 
 LABEL org.opencontainers.image.title="caddy" \
-      org.opencontainers.image.version="2.11.3" \
+      org.opencontainers.image.version="2.11.7" \
       org.opencontainers.image.description="Custom Caddyserver as Docker Image" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.source="https://github.com/flukschander/caddy-docker"
