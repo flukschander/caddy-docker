@@ -2,11 +2,11 @@ FROM caddy:builder AS builder
 
 RUN git clone https://github.com/zyclonite/caddy-forwardproxy /src/forwardproxy
 
-RUN xcaddy build v2.11.7 \
+RUN xcaddy build v2.11.9 \
     --with github.com/caddy-dns/googleclouddns \
     --with github.com/caddyserver/forwardproxy=/src/forwardproxy
 
-FROM alpine:3.23
+FROM alpine:3.24.4
 
 LABEL org.opencontainers.image.title="caddy" \
       org.opencontainers.image.version="2.11.7" \
